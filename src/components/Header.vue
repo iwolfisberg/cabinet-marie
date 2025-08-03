@@ -3,6 +3,7 @@ import { ref } from "vue";
 
 import BurgerIcon from "../icons/BurgerIcon.vue";
 import CloseIcon from "../icons/CloseIcon.vue";
+import AppointmentModal from "../components/AppointmentModal.vue";
 
 const isExpanded = ref(false);
 
@@ -55,9 +56,11 @@ const toggleMenu = () => {
             Cabinet de physiothérapie et d'acupuncture à Fribourg
           </p>
         </div>
-        <button type="button" class="btn-primary text-md header-cta">
-          Prendre rendez-vous
-        </button>
+
+        <div class="header-cta">
+          <AppointmentModal />
+        </div>
+
         <button
           type="button"
           aria-controls="menu"
@@ -79,9 +82,7 @@ const toggleMenu = () => {
           </a>
         </li>
       </ul>
-      <button type="button" class="btn-primary text-md">
-        Prendre rendez-vous
-      </button>
+      <AppointmentModal />
     </div>
   </div>
 </template>
@@ -137,6 +138,8 @@ const toggleMenu = () => {
   border: none;
   margin: 0;
   padding: 0;
+  width: 2rem;
+  height: 2rem;
 }
 
 @media (min-width: 48rem) {

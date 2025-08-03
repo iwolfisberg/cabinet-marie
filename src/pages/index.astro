@@ -3,6 +3,7 @@ import "../css/main.css";
 import "../css/button.css";
 
 import Header from "../components/Header.vue";
+import AppointmentModal from "../components/AppointmentModal.vue";
 ---
 
 <style>
@@ -12,7 +13,6 @@ import Header from "../components/Header.vue";
     color: var(--color-green-500);
 
     background-color: var(--color-beige-100);
-    height: 300vh;
   }
 </style>
 
@@ -32,8 +32,5 @@ import Header from "../components/Header.vue";
   </head>
   <body>
     <Header client:load />
-
-    <h1 class="heading-md">Astro</h1>
-    <a href="#" class="btn-secondary acu text-md">Prendre rendez-vous</a>
   </body>
 </html>
