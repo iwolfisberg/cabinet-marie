@@ -1,0 +1,70 @@
+/* Button component */
+.btn-primary {
+  width: fit-content;
+  padding: 0.75rem;
+
+  font-weight: 700;
+  color: var(--color-green-500);
+  text-decoration: none;
+
+  background-color: var(--color-beige-100);
+  border: 2px solid var(--color-green-500);
+  border-radius: var(--rounded-md);
+
+  transition: all 0.25s ease-out;
+
+  &:hover {
+    box-shadow: 8px 8px 0 0 var(--color-green-500);
+  }
+
+  &.acu:hover {
+    box-shadow: 8px 8px 0 0 var(--color-orange-500);
+  }
+
+  &.physio:hover {
+    box-shadow: 8px 8px 0 0 var(--color-lila-500);
+  }
+
+  @media (min-width: 48rem) {
+    padding: 1rem;
+  }
+}
+
+.btn-secondary {
+  width: fit-content;
+  padding: 0.5rem;
+
+  border-radius: var(--rounded-md);
+  border: 2px solid var(--color-beige-100);
+
+  font-weight: 700;
+  text-decoration: none;
+
+  transition: all 0.25s ease-out;
+
+  &.physio {
+    color: var(--color-beige-100);
+    background-color: var(--color-lila-500);
+
+    &:hover {
+      color: var(--color-lila-500);
+      background-color: var(--color-beige-100);
+      border-color: var(--color-lila-500);
+    }
+  }
+
+  &.acu {
+    color: var(--color-beige-100);
+    background-color: var(--color-orange-500);
+
+    &:hover {
+      color: var(--color-orange-500);
+      background-color: var(--color-beige-100);
+      border-color: var(--color-orange-500);
+    }
+  }
+
+  @media (min-width: 48rem) {
+    padding: 0.75rem;
+  }
+}

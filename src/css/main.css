@@ -1,0 +1,97 @@
+:root {
+  --color-beige-300: #dad5c5;
+  --color-beige-100: #f8f6f0;
+  --color-green-500: #09240d;
+  --color-green-400: #1c542d;
+  --color-orange-500: #e4890a;
+  --color-orange-100: #fedd20;
+  --color-orange-50: #ffe6b8;
+  --color-lila-500: #4d44b6;
+
+  --font-bellota-text: "Bellota Text", sans-serif;
+  --font-bellota-heading: "Bellota", system-ui;
+
+  --breakpoint-sm: 40rem;
+  --breakpoint-md: 48rem;
+  --breakpoint-lg: 64rem;
+  --breakpoint-xl: 80rem;
+  --breakpoint-2xl: 96rem;
+
+  --rounded-md: 0.5rem;
+  --rounded-sm: 0.25rem;
+}
+
+* {
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* TYPOGRAPHY */
+.heading-lg {
+  font-family: var(--font-bellota-heading);
+  font-size: 2rem;
+  font-weight: 700;
+
+  @media (min-width: 48rem) {
+    font-size: 2.5rem;
+  }
+}
+
+.heading-md {
+  font-family: var(--font-bellota-heading);
+  font-size: 1.5rem;
+  font-weight: 700;
+
+  @media (min-width: 48rem) {
+    font-size: 2rem;
+  }
+}
+
+.heading-sm {
+  font-family: var(--font-bellota-heading);
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.text-lg {
+  font-family: var(--font-bellota-text);
+  font-size: 1.25rem;
+  font-weight: 400;
+  line-height: 1.6875rem;
+
+  @media (min-width: 48rem) {
+    font-size: 1.5rem;
+    font-weight: 400;
+    line-height: 2rem;
+  }
+}
+
+.text-md {
+  font-family: var(--font-bellota-text);
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.375rem;
+
+  @media (min-width: 48rem) {
+    font-size: 1.25rem;
+    font-weight: 400;
+    line-height: 1.6875rem;
+  }
+}
+
+.text-sm {
+  font-family: var(--font-bellota-text);
+  font-size: 0.75rem;
+  font-weight: 400;
+  line-height: 1rem;
+
+  @media (min-width: 48rem) {
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.375rem;
+  }
+}
