@@ -30,6 +30,13 @@ a {
   color: inherit;
 }
 
+/* LAYOUT */
+.container {
+  max-width: 100rem;
+  margin: 0 auto;
+  /* background-color: red; */
+}
+
 /* TYPOGRAPHY */
 .heading-lg {
   font-family: var(--font-bellota-heading);

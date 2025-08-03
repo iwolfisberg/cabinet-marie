@@ -48,7 +48,7 @@ const toggleMenu = () => {
 
 <template>
   <div class="header-wrapper">
-    <header class="header">
+    <header class="header container">
       <div class="header-inside">
         <div class="header-title">
           <h1 class="heading-md">Marie Santschi</h1>
@@ -96,15 +96,15 @@ const toggleMenu = () => {
   padding: 0 0.75rem;
 }
 
-@media (min-width: 64rem) {
-  .header {
-    padding: 0 2.5rem;
-  }
-}
-
 @media (min-width: 48rem) {
   .header {
     padding: 0 1.25rem;
+  }
+}
+
+@media (min-width: 64rem) {
+  .header {
+    padding: 0 2.5rem;
   }
 }
 
@@ -160,6 +160,7 @@ const toggleMenu = () => {
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
+  z-index: 500;
 
   transition: opacity 0.25s ease, visibility 0.3s ease;
 }

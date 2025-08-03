@@ -91,12 +91,14 @@ const toggleModal = () => {
   justify-content: center;
   align-items: center;
   width: 100%;
+
   height: calc(100vh - 10rem);
 
   @media (min-width: 48rem) {
     padding: 4rem 2.5rem;
     border-radius: var(--rounded-sm);
     height: 100%;
+    max-width: calc(100rem - 5rem);
   }
 }
 

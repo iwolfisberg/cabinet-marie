@@ -1,0 +1,249 @@
+---
+import Sun from "../icons/Sun.vue";
+---
+
+<style>
+  .footer .container {
+    padding: 2.5rem 0.75rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+
+    @media (min-width: 48rem) {
+      padding: 2.5rem 1.25rem;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      gap: 1.25rem;
+    }
+
+    @media (min-width: 64rem) {
+      padding: 2.5rem 2.5rem 5rem 2.5rem;
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+      gap: 1.25rem;
+    }
+  }
+
+  .footer-decoration {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    height: 155px;
+    z-index: -1;
+
+    @media (min-width: 48rem) {
+      height: 100%;
+    }
+  }
+
+  .footer-decoration-svg {
+    position: absolute;
+    width: 100%;
+    top: -32%;
+    left: 0;
+
+    @media (min-width: 48rem) {
+      width: 200%;
+      top: 0;
+      left: -100%;
+    }
+  }
+
+  .footer-content {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
+    @media (min-width: 48rem) {
+      grid-column: 2 / 5;
+      gap: 2.25rem;
+    }
+
+    @media (min-width: 64rem) {
+      grid-column: 2 / 7;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+    }
+  }
+
+  .footer-link {
+    text-decoration-line: underline;
+    text-decoration-style: solid;
+    text-decoration-skip-ink: auto;
+    text-decoration-thickness: 7.5%; /* 1.36px */
+    text-underline-offset: 25%; /* 4px */
+    text-underline-position: from-font;
+    transition: opacity 0.2s ease-out;
+    width: fit-content;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+
+  .contact,
+  .schedule,
+  .access {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .contact-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .contact-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+
+    margin-block: 0;
+    padding-inline-start: 1.5rem;
+  }
+
+  .contact-list li::marker {
+    font-size: 0.75rem;
+  }
+
+  .schedule-content,
+  .access-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  @media (min-width: 64rem) {
+    .access {
+      grid-column: 1 / 3;
+    }
+  }
+
+  .access-means {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    @media (min-width: 64rem) {
+      gap: 1.25rem;
+    }
+  }
+
+  .access-subtitle {
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+  }
+
+  .access-content-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    @media (min-width: 64rem) {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+    }
+  }
+
+  .credit {
+    background-color: var(--color-beige-300);
+  }
+
+  .credit .container {
+    padding: 1rem 0.75rem;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    @media (min-width: 48rem) {
+      padding: 1.25rem 2.5rem;
+    }
+  }
+</style>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-decoration">
+      <div class="footer-decoration-svg">
+        <Sun />
+      </div>
+    </div>
+    <div class="footer-content">
+      <div id="#contact" class="contact">
+        <h2 class="heading-sm">Contact</h2>
+        <div class="contact-content">
+          <p class="text-md">Pour tout renseignement ou information</p>
+          <ul class="contact-list">
+            <li class="text-md">
+              <a class="footer-link" href="tel:0774097738">077 409 77 38</a> (appels,
+              SMS, WhatsApp, Threema)
+            </li>
+            <li class="text-md">
+              <a class="footer-link" href="mailto:marie-santschi@proton.me"
+                >marie-santschi@proton.me</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div id="#horaires" class="schedule">
+        <h2 class="heading-sm">Horaires</h2>
+        <div class="schedule-content">
+          <div>
+            <p class="text-md">Lundi, mardi et jeudi</p>
+            <p class="text-md">08h00 - 13h00</p>
+            <p class="text-md">14h00 - 17h00</p>
+          </div>
+          <p class="text-md">
+            D’autres disponibilités sont possibles selon les besoins
+          </p>
+        </div>
+      </div>
+
+      <div id="#acces" class="access">
+        <h2 class="heading-sm">Accès</h2>
+        <div class="access-content-wrapper">
+          <div class="access-content">
+            <a
+              href="https://maps.app.goo.gl/7U9wtzT5PCi1PiCn8"
+              target="_blank"
+              class="footer-link text-md"
+              >Route de Lausanne 60<br />1700 Fribourg</a
+            >
+
+            <p class="text-md">
+              1er étage, sans ascenseur.<br />
+              Non accessible en fauteuil roulant.
+            </p>
+          </div>
+          <div class="access-means">
+            <div>
+              <h3 class="text-md access-subtitle">Voiture</h3>
+              <p class="text-md">Places de parc aux environs</p>
+              <p class="text-md">Parking souterrain des Alpes</p>
+            </div>
+            <div>
+              <h3 class="text-md access-subtitle">Transports publics</h3>
+              <p class="text-md">Bus 1, 2, 3, 5, 6 - Arrêt St. Pierre</p>
+              <p class="text-md">Bus 1, 2, 6 - Arrêt Tilleul / Cathédrale</p>
+              <p class="text-md">Bus 3, 5 - Arrêt George Python</p>
+              <p class="text-md">10 minutes à pied depuis la gare</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="credit">
+    <div class="container">
+      <p class="text-sm">
+        Site conçu et codé par <a
+          class="footer-link"
+          href="mailto:iris.wolfisberg@protonmail.com">Iris Wolfisberg</a
+        >
+      </p>
+    </div>
+  </div>
+</footer>
