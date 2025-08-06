@@ -6,6 +6,8 @@ import Header from "../components/Header.vue";
 import Footer from "../components/Footer.astro";
 import Hero from "../components/Hero.astro";
 import TherapeuticApproach from "../components/TherapeuticApproach.astro";
+import AppointmentModal from "../components/AppointmentModal.vue";
+import { App } from "astro/app";
 ---
 
 <style>
@@ -15,6 +17,18 @@ import TherapeuticApproach from "../components/TherapeuticApproach.astro";
     color: var(--color-green-500);
 
     background-color: var(--color-beige-100);
+  }
+
+  .appointment-btn {
+    position: fixed;
+    bottom: 2.5rem;
+    right: 0.75rem;
+  }
+
+  @media (min-width: 48rem) {
+    .appointment-btn {
+      display: none;
+    }
   }
 </style>
 
@@ -37,5 +51,9 @@ import TherapeuticApproach from "../components/TherapeuticApproach.astro";
     <Hero />
     <TherapeuticApproach />
     <Footer />
+
+    <div class="appointment-btn">
+      <AppointmentModal client:load />
+    </div>
   </body>
 </html>
