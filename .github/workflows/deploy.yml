@@ -1,0 +1,101 @@
+name: Deploy static website
+
+on:
+  push:
+    branches:
+      - dev
+      - main
+  pull_request:
+    branches:
+      - main
+    types: [opened, synchronize, reopened]
+
+env:
+  NODE_VERSION: "20"
+
+jobs:
+  build:
+    name: Build website
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build website
+        run: npm run build
+
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-files
+          path: dist/
+          retention-days: 30
+
+  deploy:
+    name: Deploy to ${{ github.ref == 'refs/heads/main' && 'Production' || 'Staging' }}
+    runs-on: ubuntu-latest
+    needs: build
+    if: github.event_name == 'push' # Ne déployer que sur push, pas sur PR
+
+    environment:
+      name: ${{ github.ref == 'refs/heads/main' && 'production' || 'staging' }}
+
+    steps:
+      - name: Download build artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: build-files
+          path: dist/
+
+      - name: Set up SSH
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_ed25519
+          chmod 600 ~/.ssh/id_ed25519
+          ssh-keyscan -H ${{ secrets.REMOTE_HOST }} >> ~/.ssh/known_hosts
+
+      - name: Deploy via rsync
+        run: |
+          REMOTE_USER="${{ secrets.REMOTE_USER }}"
+          REMOTE_HOST="${{ secrets.REMOTE_HOST }}"
+          REMOTE_PATH="${{ github.ref == 'refs/heads/main' && secrets.REMOTE_PATH_PROD || secrets.REMOTE_PATH_STAGING }}"
+
+          # Créer le dossier de destination s'il n'existe pas
+          ssh $REMOTE_USER@$REMOTE_HOST "mkdir -p $REMOTE_PATH"
+
+          # Déployer les fichiers buildés
+          rsync -avz --delete \
+            --exclude=".*" \
+            --exclude="*.log" \
+            --exclude="node_modules/" \
+            --progress \
+            --human-readable \
+            dist/ $REMOTE_USER@$REMOTE_HOST:$REMOTE_PATH/
+
+      - name: Verify deployment
+        run: |
+          REMOTE_USER="${{ secrets.REMOTE_USER }}"
+          REMOTE_HOST="${{ secrets.REMOTE_HOST }}"
+          REMOTE_PATH="${{ github.ref == 'refs/heads/main' && secrets.REMOTE_PATH_PROD || secrets.REMOTE_PATH_STAGING }}"
+
+          echo "Vérification du déploiement..."
+          ssh $REMOTE_USER@$REMOTE_HOST "ls -la $REMOTE_PATH && du -sh $REMOTE_PATH"
+
+      - name: Cleanup old deployments (optional)
+        run: |
+          REMOTE_USER="${{ secrets.REMOTE_USER }}"
+          REMOTE_HOST="${{ secrets.REMOTE_HOST }}"
+          REMOTE_PATH="${{ github.ref == 'refs/heads/main' && secrets.REMOTE_PATH_PROD || secrets.REMOTE_PATH_STAGING }}"
+
+          # Nettoyer les logs anciens (optionnel)
+          ssh $REMOTE_USER@$REMOTE_HOST "find $REMOTE_PATH -name '*.log' -mtime +7 -delete 2>/dev/null || true"
