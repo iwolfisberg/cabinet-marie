@@ -96,7 +96,7 @@ const toggleModal = () => {
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: calc(100vh - 10rem);
+  height: calc(100svh - 10rem);
 }
 
 @media (min-width: 48rem) {
