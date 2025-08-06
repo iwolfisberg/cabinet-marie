@@ -198,8 +198,8 @@
   <div class="hero-wrapper-content">
     <div class="hero-content">
       <div class="hero-decoration" aria-hidden="true">
-        <img src="sun.webp" alt="" class="sun-1" />
-        <img src="sun2.webp" alt="" class="sun-2" />
+        <img src="sun.webp" alt="" class="sun-1" loading="lazy" />
+        <img src="sun2.webp" alt="" class="sun-2" loading="lazy" />
       </div>
       <div class="text-content-wrapper">
         <div class="text-wrapper">
@@ -230,6 +230,10 @@
       <img
         class="hero-img"
         src="marie.webp"
+        loading="eager"
+        srcset="marie-350.webp 350w,
+          marie-700.webp 700w,
+          marie-1400.webp 1400w"
         alt="Portrait de Marie Santschi, physiothérapeut et acupunctrice"
       />
     </div>
