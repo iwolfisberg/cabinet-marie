@@ -2,7 +2,7 @@
 import { ref, watchEffect, onMounted } from "vue";
 import CloseIcon from "../icons/CloseIcon.vue";
 
-const props = defineProps(["service", "class"]);
+const props = defineProps(["service", "class", "onBeforeOpen"]);
 const isExpanded = ref(false);
 const isMounted = ref(false);
 
@@ -24,6 +24,9 @@ watchEffect(() => {
 });
 
 const toggleModal = () => {
+  if (!isExpanded.value && props.onBeforeOpen) {
+    props.onBeforeOpen();
+  }
   isExpanded.value = !isExpanded.value;
   if (typeof document !== "undefined") {
     document.querySelector("body").style.overflow = isExpanded.value

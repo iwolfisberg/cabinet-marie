@@ -77,12 +77,12 @@ const toggleMenu = () => {
     <div id="menu" class="menu" :class="{ 'menu-hidden': !isExpanded }">
       <ul class="menu-list">
         <li v-for="item in menuItems" :key="item.title" class="menu-list-item">
-          <a :href="item.link" class="text-lg">
+          <a :href="item.link" class="text-lg" @click="toggleMenu">
             {{ item.title }}
           </a>
         </li>
       </ul>
-      <AppointmentModal />
+      <AppointmentModal :onBeforeOpen="toggleMenu" />
     </div>
   </div>
 </template>
