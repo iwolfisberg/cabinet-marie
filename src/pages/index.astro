@@ -9,46 +9,55 @@ import TherapeuticApproach from "../components/TherapeuticApproach.astro";
 import AppointmentModal from "../components/AppointmentModal.vue";
 import Physiotherapy from "../components/Physiotherapy.astro";
 import Acupuncture from "../components/Acupuncture.astro";
+
+// Détecter si on est en staging
+const isStaging =
+  import.meta.env.PUBLIC_ENVIRONMENT === "staging" ||
+  Astro.url.hostname.includes("staging") ||
+  Astro.url.hostname.includes("dev");
 ---
 
-<style>
-  body {
-    font-family: var(--font-bellota-text);
-    font-size: 1.25rem;
-    color: var(--color-green-500);
-
-    background-color: var(--color-beige-100);
-  }
-
-  .appointment-btn {
-    position: fixed;
-    bottom: 2.5rem;
-    right: 0.75rem;
-  }
-
-  @media (min-width: 48rem) {
-    .appointment-btn {
-      display: none;
-    }
-  }
-</style>
-
+<!doctype html>
 <html lang="fr">
   <head>
     <meta charset="utf-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="generator" content={Astro.generator} />
     <title>Marie Santschi - Cabinet de physiothérapie et acupuncture</title>
+
+    <!-- Preconnect pour les fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Bellota+Text:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Bellota:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap"
       rel="stylesheet"
     />
+
+    <!-- Meta SEO pour le français -->
+    <meta name="language" content="fr" />
+    <!-- Empêcher l'indexation en staging -->
+    {
+      isStaging && (
+        <meta name="robots" content="noindex, nofollow, noarchive, nosnippet" />
+      )
+    }
+
+    <!-- Meta pour la production -->
+    {!isStaging && <meta name="language" content="fr" />}
+    {!isStaging && <meta name="robots" content="index, follow" />}
+    {
+      !isStaging && (
+        <meta
+          name="description"
+          content="Cabinet de physiothérapie et acupuncture de Marie Santschi. Soins personnalisés et approche thérapeutique holistique."
+        />
+      )
+    }
   </head>
+
   <body>
-    <Header client:load />
+    <Header client:idle />
     <Hero />
     <TherapeuticApproach />
     <Physiotherapy />
@@ -56,7 +65,28 @@ import Acupuncture from "../components/Acupuncture.astro";
     <Footer />
 
     <div class="appointment-btn">
-      <AppointmentModal client:load />
+      <AppointmentModal client:idle />
     </div>
+
+    <style>
+      body {
+        font-family: var(--font-bellota-text);
+        font-size: 1.25rem;
+        color: var(--color-green-500);
+        background-color: var(--color-beige-100);
+      }
+
+      .appointment-btn {
+        position: fixed;
+        bottom: 2.5rem;
+        right: 0.75rem;
+      }
+
+      @media (min-width: 48rem) {
+        .appointment-btn {
+          display: none;
+        }
+      }
+    </style>
   </body>
 </html>
