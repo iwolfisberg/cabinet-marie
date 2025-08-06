@@ -1,0 +1,237 @@
+<style>
+  .hero {
+    padding: 2.5rem 0.75rem;
+  }
+
+  @media (min-width: 48rem) {
+    .hero {
+      padding: 2.5rem 1.25rem;
+    }
+  }
+
+  @media (min-width: 64rem) {
+    .hero {
+      padding: 5rem 2.5rem;
+    }
+  }
+
+  .hero-snippet {
+    margin: 0 auto;
+    text-align: center;
+    padding-bottom: 3.5rem;
+  }
+
+  @media (min-width: 48rem) {
+    .hero-snippet {
+      padding-bottom: 2.5rem;
+      max-width: calc(5 / 6 * 100%);
+    }
+  }
+
+  @media (min-width: 64rem) {
+    .hero-snippet {
+      padding-bottom: 5rem;
+      max-width: 50%;
+    }
+  }
+
+  .hero-wrapper-content {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 1.25rem;
+  }
+
+  @media (min-width: 48rem) {
+    .hero-wrapper-content {
+      grid-template-columns: repeat(12, 1fr);
+      column-gap: 1.25rem;
+      row-gap: 2.5rem;
+    }
+  }
+
+  @media (min-width: 64rem) {
+    .hero-wrapper-content {
+      gap: 1.25rem;
+      align-items: center;
+    }
+  }
+
+  .hero-img-wrapper {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    order: 1;
+  }
+
+  @media (min-width: 48rem) {
+    .hero-img-wrapper {
+      grid-column: 1 / 13;
+    }
+  }
+
+  @media (min-width: 64rem) {
+    .hero-img-wrapper {
+      grid-column: 9 / 13;
+      order: 2;
+    }
+  }
+
+  .hero-img {
+    width: 100%;
+  }
+
+  @media (min-width: 48rem) {
+    .hero-img {
+      width: 50%;
+    }
+  }
+
+  @media (min-width: 64rem) {
+    .hero-img {
+      width: 100%;
+    }
+  }
+
+  .hero-content {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 0.75rem;
+    order: 2;
+  }
+
+  @media (min-width: 48rem) {
+    .hero-content {
+      grid-column: 1 / 13;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+    }
+  }
+
+  @media (min-width: 64rem) {
+    .hero-content {
+      grid-column: 1 / 9;
+      grid-template-columns: repeat(4, 1fr);
+      order: 1;
+    }
+  }
+
+  .text-content-wrapper {
+    order: 1;
+  }
+
+  @media (min-width: 48rem) {
+    .text-content-wrapper {
+      grid-column: 2 / 4;
+      order: 2;
+    }
+  }
+
+  @media (min-width: 64rem) {
+    .text-content-wrapper {
+      grid-column: 2 / 5;
+    }
+  }
+
+  .text-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .text-wrapper p {
+    text-align: justify;
+  }
+
+  .btns-wrapper {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.25rem;
+  }
+
+  @media (min-width: 48rem) {
+    .btns-wrapper {
+      gap: 2rem;
+      margin-top: 2.5rem;
+    }
+  }
+
+  .hero-decoration {
+    width: 100%;
+    height: 155px;
+    order: 2;
+  }
+
+  @media (min-width: 48rem) {
+    .hero-decoration {
+      height: 100%;
+      order: 1;
+    }
+  }
+
+  .sun-1,
+  .sun-2 {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .sun-1 {
+    display: none;
+  }
+
+  @media (min-width: 48rem) {
+    .sun-1 {
+      display: inline;
+    }
+
+    .sun-2 {
+      display: none;
+    }
+  }
+</style>
+
+<div class="hero container">
+  <h2 class="heading-md hero-snippet">
+    Je vous reçois dans un cadre calme et bienveillant, pour vous accompagner
+    avec soin et écoute.
+  </h2>
+  <div class="hero-wrapper-content">
+    <div class="hero-content">
+      <div class="hero-decoration" aria-hidden="true">
+        <img src="sun.webp" alt="" class="sun-1" />
+        <img src="sun2.webp" alt="" class="sun-2" />
+      </div>
+      <div class="text-content-wrapper">
+        <div class="text-wrapper">
+          <p class="text-md">
+            Diplômée en physiothérapie depuis 2017, j’ai tout d’abord exercé au
+            sein de l’Hôpital Cantonal de Fribourg, puis en cabinets privés.
+          </p>
+          <p class="text-md">
+            Etant à la recherche d’une approche thérapeutique plus complète de
+            l’Humain, j’ai entamé un cursus d’acupuncture à l’école IEATC que
+            j’ai terminé en 2024.
+          </p>
+          <p class="text-md">
+            En 2025, j’ai eu l’opportunité de reprendre le cabinet de Madame
+            Séverine Nager, physiothérapeute à Fribourg depuis 20 ans. C’est ici
+            que je vous reçois aujourd’hui.
+          </p>
+        </div>
+        <div class="btns-wrapper">
+          <a href="#acupuncture" class="btn-primary text-md acu">Acupuncture</a>
+          <a href="#physiotherapie" class="btn-primary text-md physio"
+            >Physiothérapie</a
+          >
+        </div>
+      </div>
+    </div>
+    <div class="hero-img-wrapper">
+      <img
+        class="hero-img"
+        src="marie.webp"
+        alt="Portrait de Marie Santschi, physiothérapeut et acupunctrice"
+      />
+    </div>
+  </div>
+</div>

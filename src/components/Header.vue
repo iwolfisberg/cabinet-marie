@@ -140,6 +140,7 @@ const toggleMenu = () => {
   padding: 0;
   width: 2rem;
   height: 2rem;
+  cursor: pointer;
 }
 
 @media (min-width: 48rem) {
@@ -154,14 +155,13 @@ const toggleMenu = () => {
   left: 0;
   right: 0;
   background-color: var(--color-beige-100);
-  box-shadow: 0 4px 4px 0 rgba(9, 36, 13, 0.25);
+  box-shadow: 0 4px 4px 0 rgb(9 36 13 / 25%);
   border-radius: 0 0 4px 4px;
   padding: 2.5rem 0.75rem;
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
   z-index: 500;
-
   transition: opacity 0.25s ease, visibility 0.3s ease;
 }
 
@@ -177,5 +177,18 @@ const toggleMenu = () => {
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
+}
+
+.menu-list-item {
+  display: contents;
+}
+
+.menu-list-item a {
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.menu-list-item a:hover {
+  color: var(--color-green-500);
 }
 </style>

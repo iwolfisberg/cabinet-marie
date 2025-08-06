@@ -72,13 +72,15 @@ const toggleModal = () => {
 .modal-wrapper {
   position: fixed;
   inset: 0;
-  background: rgba(9, 36, 13, 0.25);
+  background: rgb(9 36 13 / 25%);
   justify-content: center;
   align-items: center;
   z-index: 1000;
   display: flex;
+}
 
-  @media (min-width: 48rem) {
+@media (min-width: 48rem) {
+  .modal-wrapper {
     padding: 7.5rem 5rem;
   }
 }
@@ -91,10 +93,11 @@ const toggleModal = () => {
   justify-content: center;
   align-items: center;
   width: 100%;
-
   height: calc(100vh - 10rem);
+}
 
-  @media (min-width: 48rem) {
+@media (min-width: 48rem) {
+  .modal {
     padding: 4rem 2.5rem;
     border-radius: var(--rounded-sm);
     height: 100%;
@@ -113,12 +116,24 @@ const toggleModal = () => {
   height: 2rem;
   z-index: 1500;
   cursor: pointer;
+}
 
-  @media (min-width: 48rem) {
+@media (min-width: 48rem) {
+  .close-modal-btn {
     top: 1rem;
     right: 1rem;
     width: 2.5rem;
     height: 2.5rem;
   }
+}
+
+.btn-open-modal {
+  cursor: pointer;
+}
+
+iframe {
+  border: none;
+  inline-size: 100%;
+  block-size: 100%;
 }
 </style>

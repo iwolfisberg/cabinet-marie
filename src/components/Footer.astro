@@ -1,49 +1,68 @@
----
-import Sun from "../icons/Sun.vue";
----
-
 <style>
   .footer .container {
     padding: 2.5rem 0.75rem;
     display: grid;
     grid-template-columns: 1fr;
     gap: 0.5rem;
+  }
 
-    @media (min-width: 48rem) {
+  @media (min-width: 48rem) {
+    .footer .container {
       padding: 2.5rem 1.25rem;
-      grid-template-columns: 1fr 1fr 1fr 1fr;
+      grid-template-columns: repeat(4, 1fr);
       gap: 1.25rem;
     }
+  }
 
-    @media (min-width: 64rem) {
+  @media (min-width: 64rem) {
+    .footer .container {
       padding: 2.5rem 2.5rem 5rem 2.5rem;
-      grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-      gap: 1.25rem;
+      grid-template-columns: repeat(6, 1fr);
     }
   }
 
   .footer-decoration {
-    overflow: hidden;
-    position: relative;
     width: 100%;
     height: 155px;
-    z-index: -1;
+  }
 
-    @media (min-width: 48rem) {
+  @media (min-width: 48rem) {
+    .footer-decoration {
       height: 100%;
+      max-height: 50%;
     }
   }
 
-  .footer-decoration-svg {
-    position: absolute;
-    width: 100%;
-    top: -32%;
-    left: 0;
+  @media (min-width: 64rem) {
+    .footer-decoration {
+      max-height: unset;
+    }
+  }
 
-    @media (min-width: 48rem) {
-      width: 200%;
-      top: 0;
-      left: -100%;
+  .sun-1,
+  .sun-2 {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .sun-1 {
+    display: none;
+    aspect-ratio: 0.707;
+  }
+
+  .sun-2 {
+    transform: rotate(180deg);
+    aspect-ratio: 3.606;
+  }
+
+  @media (min-width: 48rem) {
+    .sun-1 {
+      display: inline;
+    }
+
+    .sun-2 {
+      display: none;
     }
   }
 
@@ -51,13 +70,17 @@ import Sun from "../icons/Sun.vue";
     display: flex;
     flex-direction: column;
     gap: 2rem;
+  }
 
-    @media (min-width: 48rem) {
+  @media (min-width: 48rem) {
+    .footer-content {
       grid-column: 2 / 5;
       gap: 2.25rem;
     }
+  }
 
-    @media (min-width: 64rem) {
+  @media (min-width: 64rem) {
+    .footer-content {
       grid-column: 2 / 7;
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -69,15 +92,15 @@ import Sun from "../icons/Sun.vue";
     text-decoration-line: underline;
     text-decoration-style: solid;
     text-decoration-skip-ink: auto;
-    text-decoration-thickness: 7.5%; /* 1.36px */
-    text-underline-offset: 25%; /* 4px */
+    text-decoration-thickness: 7.5%;
+    text-underline-offset: 25%;
     text-underline-position: from-font;
     transition: opacity 0.2s ease-out;
     width: fit-content;
+  }
 
-    &:hover {
-      opacity: 0.8;
-    }
+  .footer-link:hover {
+    opacity: 0.8;
   }
 
   .contact,
@@ -98,7 +121,6 @@ import Sun from "../icons/Sun.vue";
     display: flex;
     flex-direction: column;
     gap: 0.25rem;
-
     margin-block: 0;
     padding-inline-start: 1.5rem;
   }
@@ -124,8 +146,10 @@ import Sun from "../icons/Sun.vue";
     display: flex;
     flex-direction: column;
     gap: 1rem;
+  }
 
-    @media (min-width: 64rem) {
+  @media (min-width: 64rem) {
+    .access-means {
       gap: 1.25rem;
     }
   }
@@ -139,8 +163,10 @@ import Sun from "../icons/Sun.vue";
     display: flex;
     flex-direction: column;
     gap: 1rem;
+  }
 
-    @media (min-width: 64rem) {
+  @media (min-width: 64rem) {
+    .access-content-wrapper {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 1.25rem;
@@ -156,8 +182,10 @@ import Sun from "../icons/Sun.vue";
     display: flex;
     justify-content: flex-end;
     align-items: center;
+  }
 
-    @media (min-width: 48rem) {
+  @media (min-width: 48rem) {
+    .credit .container {
       padding: 1.25rem 2.5rem;
     }
   }
@@ -165,10 +193,9 @@ import Sun from "../icons/Sun.vue";
 
 <footer class="footer">
   <div class="container">
-    <div class="footer-decoration">
-      <div class="footer-decoration-svg">
-        <Sun />
-      </div>
+    <div class="footer-decoration" aria-hidden="true">
+      <img src="sun.webp" alt="" class="sun-1" />
+      <img src="sun2.webp" alt="" class="sun-2" />
     </div>
     <div class="footer-content">
       <div id="#contact" class="contact">
