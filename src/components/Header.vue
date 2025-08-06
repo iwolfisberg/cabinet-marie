@@ -10,11 +10,11 @@ const isExpanded = ref(false);
 const menuItems = [
   {
     title: "À propos",
-    link: "#",
+    link: "#a-propos",
   },
   {
     title: "Approche thérapeutique",
-    link: "#",
+    link: "#approche-therapeutique",
   },
   {
     title: "Physiothérapie",
