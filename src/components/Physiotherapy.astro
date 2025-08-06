@@ -15,7 +15,7 @@ import AppointmentModal from "./AppointmentModal.vue";
 
   @media (min-width: 64rem) {
     .container {
-      padding: 5rem 2.5rem;
+      padding: 5rem 2.5rem 2.5rem;
     }
   }
 
@@ -46,13 +46,13 @@ import AppointmentModal from "./AppointmentModal.vue";
   }
 
   .wrapper-introduction {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
   }
 
   @media (min-width: 64rem) {
     .wrapper-introduction {
-      flex-direction: row;
+      grid-template-columns: repeat(2, 1fr);
     }
   }
 
@@ -61,12 +61,6 @@ import AppointmentModal from "./AppointmentModal.vue";
     flex-direction: column;
     gap: 1rem;
     padding: 1.25rem;
-  }
-
-  @media (min-width: 64rem) {
-    .introduction-content {
-      width: 50%;
-    }
   }
 
   .introduction-content .text-lg {
@@ -105,7 +99,6 @@ import AppointmentModal from "./AppointmentModal.vue";
 
   @media (min-width: 64rem) {
     .decoration {
-      width: 50%;
       height: auto;
     }
   }

@@ -18,23 +18,19 @@ const menuItems = [
   },
   {
     title: "Physiothérapie",
-    link: "#",
+    link: "#physiotherapie",
   },
   {
     title: "Acupuncture",
-    link: "#",
+    link: "#acupuncture",
   },
   {
     title: "Contact",
-    link: "#",
-  },
-  {
-    title: "Horaires",
-    link: "#",
+    link: "#contact",
   },
   {
     title: "Accès",
-    link: "#",
+    link: "#acces",
   },
 ];
 
