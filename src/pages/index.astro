@@ -9,6 +9,7 @@ import TherapeuticApproach from "../components/TherapeuticApproach.astro";
 import AppointmentModal from "../components/AppointmentModal.vue";
 import Physiotherapy from "../components/Physiotherapy.astro";
 import Acupuncture from "../components/Acupuncture.astro";
+import JsonLD from "../components/JsonLD.astro";
 
 // Détecter si on est en staging
 const isStaging =
@@ -50,13 +51,22 @@ const isStaging =
       !isStaging && (
         <meta
           name="description"
-          content="Cabinet de physiothérapie et acupuncture de Marie Santschi. Soins personnalisés et approche thérapeutique holistique."
+          content="Cabinet de physiothérapie et acupuncture de Marie Santschi à Fribourg. Soins personnalisés et approche thérapeutique holistique."
+        />
+         <meta
+          property="og:title"
+          content="Marie Santschi - Cabinet de physiothérapie et acupuncture à Fribourg"
+        />
+        <meta
+          property="og:description"
+          content="Cabinet de physiothérapie et acupuncture de Marie Santschi à Fribourg. Soins personnalisés et approche thérapeutique holistique."
         />
       )
     }
   </head>
 
   <body>
+    <JsonLD />
     <Header client:idle />
     <Hero />
     <TherapeuticApproach />
