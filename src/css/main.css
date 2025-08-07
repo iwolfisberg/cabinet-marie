@@ -2,8 +2,8 @@
   --color-beige-300: #dad5c5;
   --color-beige-100: #f8f6f0;
   --color-green-500: #09240d;
-  --color-green-400: #1c542d;
-  --color-orange-500: #e4890a;
+  --color-green-400: hsl(138, 50%, 22%);
+  --color-orange-500: rgb(228, 137, 10);
   --color-orange-100: #fedd20;
   --color-orange-50: #ffe6b8;
   --color-lila-500: rgb(77, 68, 182);

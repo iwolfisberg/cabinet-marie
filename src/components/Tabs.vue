@@ -351,8 +351,12 @@ watchEffect(() => {
   }
 }
 
-.tab-button:hover {
+.physio .tab-button:hover {
   background-color: rgba(77, 68, 182, 0.1);
+}
+
+.acu .tab-button:hover {
+  background-color: rgba(228, 137, 10, 0.1);
 }
 
 .physio .tab-button.active {
