@@ -1,5 +1,6 @@
 ---
 import AppointmentModal from "./AppointmentModal.vue";
+import Tabs from "./Tabs.vue";
 ---
 
 <style>
@@ -48,6 +49,7 @@ import AppointmentModal from "./AppointmentModal.vue";
   .wrapper-introduction {
     display: grid;
     grid-template-columns: repeat(1, 1fr);
+    border-bottom: 2px solid var(--color-lila-500);
   }
 
   @media (min-width: 64rem) {
@@ -141,5 +143,6 @@ import AppointmentModal from "./AppointmentModal.vue";
         </svg>
       </div>
     </div>
+    <Tabs client:load type="physio" />
   </div>
 </section>

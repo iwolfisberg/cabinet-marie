@@ -6,7 +6,7 @@
   --color-orange-500: #e4890a;
   --color-orange-100: #fedd20;
   --color-orange-50: #ffe6b8;
-  --color-lila-500: #4d44b6;
+  --color-lila-500: rgb(77, 68, 182);
 
   --font-bellota-text: "Bellota Text", sans-serif;
   --font-bellota-heading: "Bellota", system-ui;
