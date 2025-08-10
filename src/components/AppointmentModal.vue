@@ -2,7 +2,12 @@
 import { ref, watchEffect, onMounted } from "vue";
 import CloseIcon from "../icons/CloseIcon.vue";
 
-const props = defineProps(["service", "class", "onBeforeOpen"]);
+const {
+  service,
+  classes = "btn-primary",
+  onBeforeOpen,
+} = defineProps(["service", "classes", "onBeforeOpen"]);
+
 const isExpanded = ref(false);
 const isMounted = ref(false);
 
@@ -16,16 +21,16 @@ const baseUrl =
 const appointmentUrl = ref(baseUrl);
 
 watchEffect(() => {
-  if (props.service) {
-    appointmentUrl.value = baseUrl + `&service=${props.service}`;
+  if (service) {
+    appointmentUrl.value = baseUrl + `&service=${service}`;
   } else {
     appointmentUrl.value = baseUrl;
   }
 });
 
 const toggleModal = () => {
-  if (!isExpanded.value && props.onBeforeOpen) {
-    props.onBeforeOpen();
+  if (!isExpanded.value && onBeforeOpen) {
+    onBeforeOpen();
   }
   isExpanded.value = !isExpanded.value;
   if (typeof document !== "undefined") {
@@ -42,8 +47,8 @@ const toggleModal = () => {
     aria-controls="appointment-modal"
     :aria-expanded="isExpanded"
     @click="toggleModal"
-    class="btn-open-modal btn-primary text-md"
-    :class="props.class"
+    class="btn-open-modal text-md"
+    :class="classes"
   >
     Prendre rendez-vous
   </button>
