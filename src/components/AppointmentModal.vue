@@ -16,13 +16,12 @@ onMounted(() => {
   isMounted.value = true;
 });
 
-const baseUrl =
-  "https://reservation.marie-santschi.ch/index.php?only=1&provider=4";
+const baseUrl = "https://reservation.marie-santschi.ch/index.php?only=1";
 const appointmentUrl = ref(baseUrl);
 
 watchEffect(() => {
   if (service) {
-    appointmentUrl.value = baseUrl + `&service=${service}`;
+    appointmentUrl.value = baseUrl + `&provider=4&service=${service}`;
   } else {
     appointmentUrl.value = baseUrl;
   }
