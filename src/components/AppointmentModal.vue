@@ -91,21 +91,28 @@ const toggleModal = () => {
 
 .modal {
   background: var(--color-beige-100);
-  padding: 5rem 0.75rem;
+  padding: 4rem 0.75rem 1rem;
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%;
-  height: calc(100svh - 10rem);
+  width: 85%;
+  height: calc(100svh - 15rem);
+  border-radius: var(--rounded-sm);
 }
 
 @media (min-width: 48rem) {
   .modal {
     padding: 4rem 2.5rem;
-    border-radius: var(--rounded-sm);
     height: 100%;
+    width: 60%;
     max-width: calc(100rem - 5rem);
+  }
+}
+
+@media (min-width: 80rem) {
+  .modal {
+    width: 35%;
   }
 }
 
@@ -137,7 +144,13 @@ const toggleModal = () => {
 
 iframe {
   border: none;
-  inline-size: 100%;
-  block-size: 100%;
+  width: 100%;
+  height: 90%;
 }
+/* 
+@media (min-width: 48rem) {
+  iframe {
+    width: 37%;
+  }
+} */
 </style>
