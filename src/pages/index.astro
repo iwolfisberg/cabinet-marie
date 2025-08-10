@@ -3,6 +3,7 @@ import "../css/main.css";
 import "../css/button.css";
 
 import Header from "../components/Header.vue";
+import InfoBanner from "../components/InfoBanner.astro";
 import Footer from "../components/Footer.astro";
 import Hero from "../components/Hero.astro";
 import TherapeuticApproach from "../components/TherapeuticApproach.astro";
@@ -70,6 +71,7 @@ const isStaging =
 
   <body>
     <JsonLD />
+    <InfoBanner />
     <Header client:idle />
     <Hero />
     <TherapeuticApproach />

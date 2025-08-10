@@ -1,0 +1,46 @@
+---
+// Calculer si on est avant le 15 septembre 2025
+const now = new Date();
+const openingDate = new Date("2025-09-15");
+const showBanner = now < openingDate;
+---
+
+{
+  showBanner && (
+    <div class="info-banner">
+      <div class="container">
+        <div class="banner-content">
+          <p class="text-md banner-text">
+            <strong>Ouverture du cabinet le 15 septembre 2025</strong> - Les
+            consultations débuteront à partir de cette date.
+          </p>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+<style>
+  .info-banner {
+    background: var(--color-green-400);
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 500;
+    overflow: hidden;
+  }
+
+  .banner-content {
+    text-align: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  .banner-text {
+    color: var(--color-beige-100);
+  }
+
+  .banner-text strong {
+    font-weight: 700;
+  }
+</style>
